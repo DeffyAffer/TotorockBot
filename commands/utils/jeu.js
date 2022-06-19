@@ -3,11 +3,11 @@ const { MessageEmbed, Message } = require('discord.js');
 module.exports = {
     name: 'jeu',
     category: 'utils',
-    permissions: ['KICK_MEMBERS'],
+    permissions: ['ADMINISTRATOR'],
     ownerOnly: false,
     usage: 'poll [question]',
     examples: ['poll', 'poll Quelle heure est-il?'],
-    description: 'Poster votre propore sondage!',
+    description: 'Poster un sondage jeu!',
     async run(client, message, args) {
       const embed = new MessageEmbed()
         .setTitle('Sondage jeu')
