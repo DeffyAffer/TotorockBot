@@ -12,8 +12,8 @@ module.exports = {
     client.user.setPresence({ activities: [{ name: 'emmerder Totorock', type: 'PLAYING' }], status: 'dnd' });
 
     // Local sur serv de dev - Instantané
-    const devGuild = await client.guilds.cache.get('901804598354907146');
-    devGuild.commands.set(client.commands.map(cmd => cmd));
+    // const devGuild = await client.guilds.cache.get('901804598354907146');
+    // devGuild.commands.set(client.commands.map(cmd => cmd));
 
     // Global - 1h
     client.application.commands.set(client.commands.map(cmd => cmd));
