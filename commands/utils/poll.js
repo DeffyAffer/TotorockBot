@@ -13,7 +13,7 @@ module.exports = {
 
       const embed = new MessageEmbed()
         .setTitle('Sondage')
-        .setColor('#00a3b5')
+        .setColor('#f7d1b8')
         .setDescription(args.slice(0).join('  '))
         .setTimestamp()
         .setFooter({ text: `Nouveau sondage généré par ${message.author.tag}!` });
@@ -43,7 +43,7 @@ module.exports = {
       
       const embed = new MessageEmbed()
         .setTitle(pollTitle)
-        .setColor('#00a3b5')
+        .setColor('#f7d1b8')
         .setDescription(pollContent)
         .setTimestamp()
         .setFooter({ text: `Nouveau sondage généré par ${interaction.user.tag}!` });

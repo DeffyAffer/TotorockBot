@@ -6,12 +6,12 @@ module.exports = {
     permissions: ['ADMINISTRATOR'],
     ownerOnly: false,
     usage: 'poll [question]',
-    examples: ['poll', 'poll Quelle heure est-il?'],
+    examples: ['jeu'],
     description: 'Poster un sondage jeu!',
     async run(client, message, args) {
       const embed = new MessageEmbed()
         .setTitle('Sondage jeu')
-        .setColor('#00a3b5')
+        .setColor('#f7d1b8')
         .setDescription(`🏎️ - Mario Kart\n🥊 - Smash\n🎨 - Splatoon 2\n🌍 - GeoGuessr\n🎙️ - Live Discussion`)
         .setTimestamp()
         .setFooter({ text: `Nouveau sondage généré par ${message.author.tag}!` });
@@ -27,7 +27,7 @@ module.exports = {
       
       const embed = new MessageEmbed()
         .setTitle('Sondage jeu')
-        .setColor('#00a3b5')
+        .setColor('#f7d1b8')
         .setDescription(`🏎️ - Mario Kart\n🥊 - Smash\n🎨 - Splatoon 2\n🌍 - GeoGuessr\n🎙️ - Live Discussion`)
         .setTimestamp()
         .setFooter({ text: `Nouveau sondage généré par ${interaction.user.tag}!` });

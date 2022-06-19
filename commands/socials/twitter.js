@@ -14,6 +14,7 @@ module.exports = {
       .setURL('https://twitter.com/Totorock131')
       .setImage(client.user.displayAvatarURL())
       .setTimestamp()
+      .setColor('#f7d1b8')
 
       const twitter = await message.reply({ embeds: [embed] });
     },
@@ -23,6 +24,7 @@ module.exports = {
       .setURL('https://twitter.com/Totorock131')
       .setImage(client.user.displayAvatarURL())
       .setTimestamp()
+      .setColor('#f7d1b8')
 
       const twitter = await interaction.reply({ embeds: [embed], fetchReply: true});
     
