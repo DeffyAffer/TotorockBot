@@ -20,6 +20,8 @@ module.exports = {
       .setURL('https://www.instagram.com/totorockphotos/')
       .setTimestamp()
       .setFooter({ text: message.author.username, iconURL: message.author.displayAvatarURL() });
+    
+    message.edit({ content: ' ',embeds: [embed1, embed2] });
   },
   async runInteraction(client, interaction) {
     const embed1 = new MessageEmbed()
@@ -34,6 +36,6 @@ module.exports = {
       .setTimestamp()
       .setFooter({ text: message.author.username, iconURL: message.author.displayAvatarURL() });
     
-      interaction.reply({ content: ' ', embeds: [embed1, embed2] })
+      interaction.editReply({ content: ' ', embeds: [embed1, embed2] })
   }
 };
