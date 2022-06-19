@@ -20,7 +20,6 @@ module.exports = {
       .setURL('https://instagram.com/totorock1')
       .setImage(client.user.displayAvatarURL())
       .setTimestamp()
-      .setFooter({ text: message.author.username, iconURL: message.author.displayAvatarURL() });
 
       const instagram = await message.reply({ embeds: [embed1, embed2] });
     },
@@ -35,7 +34,6 @@ module.exports = {
         .setURL('https://instagram.com/totorockphotos')
         .setImage(client.user.displayAvatarURL())
         .setTimestamp()
-        .setFooter({ text: message.author.username, iconURL: message.author.displayAvatarURL() });
 
       const instagram = await interaction.reply({ embeds: [embed1, embed2], fetchReply: true});
     

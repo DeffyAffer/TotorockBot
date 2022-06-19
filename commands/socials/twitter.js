@@ -14,7 +14,6 @@ module.exports = {
       .setURL('https://twitter.com/Totorock131')
       .setImage(client.user.displayAvatarURL())
       .setTimestamp()
-      .setFooter({ text: message.author.username, iconURL: message.author.displayAvatarURL() });
 
       const twitter = await message.reply({ embeds: [embed] });
     },
@@ -24,7 +23,6 @@ module.exports = {
       .setURL('https://twitter.com/Totorock131')
       .setImage(client.user.displayAvatarURL())
       .setTimestamp()
-      .setFooter({ text: message.author.username, iconURL: message.author.displayAvatarURL() });
 
       const twitter = await interaction.reply({ embeds: [embed], fetchReply: true});
     

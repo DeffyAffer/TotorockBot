@@ -20,7 +20,6 @@ module.exports = {
       .setURL('https://www.youtube.com/channel/UC3hvQjwuXSSgnebAf3yrI-g')
       .setImage(client.user.displayAvatarURL())
       .setTimestamp()
-      .setFooter({ text: message.author.username, iconURL: message.author.displayAvatarURL() });
 
       const youtube = await message.reply({ embeds: [embed1, embed2] });
     },
@@ -35,7 +34,6 @@ module.exports = {
       .setURL('https://www.youtube.com/channel/UC3hvQjwuXSSgnebAf3yrI-g')
       .setImage(client.user.displayAvatarURL())
       .setTimestamp()
-      .setFooter({ text: message.author.username, iconURL: message.author.displayAvatarURL() });
 
       const youtube = await interaction.reply({ embeds: [embed1, embed2], fetchReply: true});
     
