@@ -16,7 +16,7 @@ module.exports = {
       .setTimestamp()
       .setColor('#f7d1b8')
 
-      const twitch = await message.reply({ embeds: [embed] });
+      const twitch = await message.reply({ embeds: [embed], ephemeral: true });
     },
      async runInteraction(client, interaction)  {
       const embed = new MessageEmbed()
@@ -26,7 +26,7 @@ module.exports = {
       .setTimestamp()
       .setColor('#f7d1b8')
 
-      const twitch = await interaction.reply({ embeds: [embed], fetchReply: true});
+      const twitch = await interaction.reply({ embeds: [embed], fetchReply: true, ephemeral: true });
     
     }
   };

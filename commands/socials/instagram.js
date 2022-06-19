@@ -23,7 +23,7 @@ module.exports = {
       .setTimestamp()
       .setColor('#f7d1b8')
 
-      const instagram = await message.reply({ embeds: [embed1, embed2] });
+      const instagram = await message.reply({ embeds: [embed1, embed2], ephemeral: true });
     },
      async runInteraction(client, interaction)  {
         const embed1 = new MessageEmbed()
@@ -39,7 +39,7 @@ module.exports = {
         .setTimestamp()
         .setColor('#f7d1b8')
 
-      const instagram = await interaction.reply({ embeds: [embed1, embed2], fetchReply: true});
+      const instagram = await interaction.reply({ embeds: [embed1, embed2], fetchReply: true, ephemeral: true });
     
     }
   };
