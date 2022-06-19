@@ -13,7 +13,7 @@ module.exports = {
       const embed1 = new MessageEmbed()
       .setTitle('📷¹ : @totorock1 (Clique ici)')
       .setURL('https://instagram.com/totorock1')
-      .setImage('https://cdn.discordapp.com/attachments/988066098865926215/988143344892907600/Capture_decran_2022-06-19_200548.png')
+      .setImage(client.user.displayAvatarURL())
 
       const embed2 = new MessageEmbed()
       .setTitle('📷¹ : @totorock1 (Clique ici)')
