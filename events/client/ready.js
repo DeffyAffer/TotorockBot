@@ -12,12 +12,17 @@ module.exports = {
     client.user.setStatus("dnd");
     
     // client.user.setPresence({ activities: [{ name: 'https://twitch.tv/totorock1', type: 'STREAMING' }] });
+    const activities = [
+      [{ name: 'https://twitch.tv/totorock1', type: 'STREAMING' }],
+      [{ name: 'les clips les plus drôles de Totorock', type: 'WATCHING' }],
+      [{ name: 'Totorock rager sur MK8DX', type: 'LISTENING' }]
+    ]
 
     setInterval(() => {
     const status = activities[Math.floor(Math.random()*activities.length)]
     client.user.setPresence({ activities: [{ name: 'https://twitch.tv/totorock1', type: 'STREAMING' }] })
     client.user.setPresence({ activities: [{ name: 'les clips les plus drôles de Totorock', type: 'WATCHING' }] })
-    client.user.setPresence({ activities: [{ name: 'Totorock rager sur MK8DX', type: 'LISTENING' }] })
+    client.user.setPresence({ activities: [{ name: 'https://twitch.tv/totorock1', type: 'STREAMING' }] })
     
   }, 5000)
 
