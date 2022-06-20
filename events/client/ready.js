@@ -20,7 +20,9 @@ module.exports = {
 
     setInterval(() => {
     const status = activities[Math.floor(Math.random()*activities.length)]
-    client.user.setPresence({ activities: [{ name: `${status}` }] })
+    client.user.setPresence({ activities: [{ name: 'https://twitch.tv/totorock1', type: 'STREAMING' }] })
+    client.user.setPresence({ activities: [{ name: 'les clips les plus drôles de Totorock', type: 'WATCHING' }] })
+    client.user.setPresence({ activities: [{ name: 'Totorock rager sur MK8DX', type: 'LISTENING' }] })
     
   }, 5000)
 
