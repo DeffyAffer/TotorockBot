@@ -10,7 +10,21 @@ module.exports = {
     Logger.client(`- Prêt à être utilisé par ${usersCount} utilisateurs sur ${guildsCount.size} serveurs!`);
 
     client.user.setStatus("dnd");
-    client.user.setPresence({ activities: [{ name: 'https://twitch.tv/totorock1', type: 'STREAMING' }] });
+    
+    // client.user.setPresence({ activities: [{ name: 'https://twitch.tv/totorock1', type: 'STREAMING' }] });
+    const activities = [
+      [{ name: 'https://twitch.tv/totorock1', type: 'STREAMING' }],
+      [{ name: 'les clips les plus drôles de Totorock', type: 'WATCHING' }],
+      [{ name: 'Totorock rager sur MK8DX', type: 'LISTENING' }],
+    ]
+
+    setInterval(() => {
+      const status = activities[Math.floor(Math.random()*activities.length)]
+      client.user.setPresence({ activities: [{ name: `${status}` }] })
+    
+    }, 5000)
+
+    
 
     // Local sur serv de dev - Instantané
     // const devGuild = await client.guilds.cache.get('901804598354907146');
