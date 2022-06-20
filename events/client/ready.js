@@ -20,7 +20,7 @@ module.exports = {
 
     setInterval(() => {
       const status = activities[Math.floor(Math.random()*activities.length)]
-      client.user.setPresence({ activities: [{ name: `${status}` }] })
+      client.user.setPresence({ activities })
     
     }, 5000)
 
