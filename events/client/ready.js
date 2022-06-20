@@ -9,7 +9,8 @@ module.exports = {
     
     Logger.client(`- Prêt à être utilisé par ${usersCount} utilisateurs sur ${guildsCount.size} serveurs!`);
 
-    client.user.setPresence({ activities: [{ name: 'https://twitch.tv/totorock1', type: 'STREAMING' }], status: 'dnd' });
+    client.user.setStatus("dnd");
+    client.user.setPresence({ activities: [{ name: 'https://twitch.tv/totorock1', type: 'STREAMING' }] });
 
     // Local sur serv de dev - Instantané
     // const devGuild = await client.guilds.cache.get('901804598354907146');
