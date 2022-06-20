@@ -22,11 +22,11 @@ module.exports = {
     const status = activities[Math.floor(Math.random()*activities.length)]
     client.user.setPresence({ activities: [{ name: 'https://twitch.tv/totorock1', type: 'STREAMING' }] })
     
-    client.user.setPresence({ activities: [{ name: 'les clips les plus drôles de Totorock', type: 'WATCHING' }] })
-    
-    client.user.setPresence({ activities: [{ name: 'Totorock rager', type: 'LISTENING' }] })
-    
     client.user.setPresence({ activities: [{ name: 'se poser des questions sur la relativité de l\'existence de la Terre' }] })
+
+    client.user.setPresence({ activities: [{ name: 'Totorock rager', type: 'LISTENING' }] })
+
+    client.user.setPresence({ activities: [{ name: 'les clips les plus drôles de Totorock', type: 'WATCHING' }] })
     
   }, 5000)
 
