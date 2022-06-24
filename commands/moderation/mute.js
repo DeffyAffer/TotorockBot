@@ -22,7 +22,7 @@ module.exports = {
     if (!convertedTime) return message.reply('Spécifier une durée valable!');
 
     target.timeout(convertedTime, reason);
-    message.channel.send(`Le membre ${target} a été mute pour ${duration} jours pour ${raison}!`);
+    message.channel.send(`Le membre ${target} a été mute pour ${duration} jour(s) pour ${raison}!`);
   },
   options: [
     {
