@@ -33,7 +33,7 @@ module.exports = {
   ownerOnly: false,
   usage: 'roles',
   examples: ['roles'],
-  description: "roles",
+  description: "Poster un menu pour choisir son/ses rôle(s)",
   async run(client, message, args) {
     await message.channel.send({ content: 'Choisir un rôle', components: [selectMenu] });
   },
