@@ -65,7 +65,7 @@ module.exports = {
       )
       .setTimestamp();
 
-    interaction.channel.send(`${member} a été mute pour la raison suivante: ${reason} (${duration})`);
+    interaction.logChannel.send(`${member} a été mute pour la raison suivante: ${reason} (${duration})`);
     await logChannel.send({ embeds: [embed] });
     await interaction.reply({
       content: `Le membre ${member} a été mute pour ${duration} car ${reason}!`,
