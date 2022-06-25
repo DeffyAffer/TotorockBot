@@ -1,4 +1,5 @@
-const ms = require('ms');
+const { MessageEmbed } = require("discord.js");
+const ms = require("ms");
 
 module.exports = {
   name: "mute",
@@ -6,54 +7,70 @@ module.exports = {
   permissions: ["MODERATE_MEMBERS"],
   ownerOnly: false,
   usage: "mute [@member] [duration] [reason]",
-  examples: ["mute @Totorock 4 minutes raison"],
+  examples: ["mute @Totorock 5m raison", "mute @Totorock 2h raison"],
   description: "Mute un utilisateur temporairement avec une raison",
-  async run (client, message, args) {
-    if (!args[0]) return message.reply('Spécifier un membre à mute!');
-    if (!args[1] || !args[2]) return message.reply('Spécifier une durée pour votre mute!');
-    if (!args[3]) return message.reply('Spécifier une raison à votre mute!');
-
-    const target = message.mentions.members.find(m => m.id);
-    const duration = args.slice(1, 3).join(' ');
-    const convertedTime = ms(duration);
-    const reason = args.slice(2).join(' ');
-
-    if (!target.moderatable) return message.reply('Ce membre ne peut pas être mute par le bot!');
-    if (!convertedTime) return message.reply('Spécifier une durée valable!');
-
-    target.timeout(convertedTime, reason);
-    message.channel.send(`Le membre ${target} a été mute pour ${duration} jour(s) pour ${raison}!`);
-  },
   options: [
     {
-      name: "target",
-      description: "L'utilisateur à mute",
+      name: "member",
+      description: "L'utilisateur a mute",
       type: "USER",
-      required: true
+      required: true,
     },
     {
       name: "duration",
       description: "La durée du mute",
       type: "STRING",
-      required: true
+      required: true,
     },
     {
       name: "reason",
       description: "La raison du mute",
       type: "STRING",
-      required: true
-    }
+      required: true,
+    },
   ],
-  async runInteraction(client, interaction) {
-    const target = interaction.options.getMember('target');
-    const duration = interaction.options.getString('duration');
+  async runInteraction(client, interaction, guildSettings) {
+    const member = interaction.options.getMember("member", true);
+    const duration = interaction.options.getString("duration");
     const convertedTime = ms(duration);
-    const reason = interaction.options.getString('reason');
+    const reason = interaction.options.getString("reason") || "Aucune raison indiquée.";
+    const logChannel = client.channels.cache.get(guildSettings.modChannel);
 
-    if (!target.moderatable) return interaction.reply('Ce membre ne peut pas être mute par le bot!');
-    if (!convertedTime) return interaction.reply('Spécifier une durée valable!');
+    if (!member)
+      return interaction.reply({
+        content: "Le membre n'a pas été trouvé!",
+        ephemeral: true,
+      });
+    if (!member.moderatable)
+      return interaction.reply({
+        content: "Ce membre ne peut pas être mute par le bot!",
+        ephemeral: true,
+      });
+    if (!convertedTime)
+      return interaction.reply({
+        content: "Spécifier une durée valable!",
+        ephemeral: true,
+      });
 
-    target.timeout(convertedTime, reason);
-    interaction.reply(`Le membre ${target} a été mute pour ${duration} jours pour ${reason}!`);
-  }
+    const embed = new MessageEmbed()
+      .setAuthor({
+        name: `${interaction.member.displayName} (${interaction.member.id})`,
+        iconURL: interaction.user.displayAvatarURL(),
+      })
+      .setColor("#F79554")
+      .setDescription(
+        `**Membre**: \`${member.user.tag}\` (${member.id})
+      **Action**: Mute
+      **Raison**: ${reason}`
+      )
+      .setTimestamp();
+
+    interaction.channel.send(`${member} a été mute pour la raison suivante: ${reason} (${duration})`);
+    await logChannel.send({ embeds: [embed] });
+    await interaction.reply({
+      content: `Le membre ${member} a été mute pour ${duration} car ${reason}!`,
+      ephemeral: true,
+    });
+    await member.timeout(convertedTime, reason);
+  },
 };
