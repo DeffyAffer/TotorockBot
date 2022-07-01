@@ -8,22 +8,45 @@ module.exports = {
     usage: 'poll [question]',
     examples: ['jeu'],
     description: 'Poster un sondage jeu!',
-    async run(client, message, args) {
-      const embed = new MessageEmbed()
-        .setTitle('Sondage jeu')
-        .setColor('#f7d1b8')
-        .setDescription(`🏎️ - Mario Kart\n🥊 - Smash\n🎨 - Splatoon 2\n🌍 - GeoGuessr\n🎙️ - Live Discussion`)
-        .setTimestamp()
-        .setFooter({ text: `Nouveau sondage généré par ${message.author.tag}!` });
-
-      const poll = await message.reply({ embeds: [embed] });
-      poll.react('🏎️')
-      poll.react('🥊')
-      poll.react('🎨')
-      poll.react('🌍')
-      poll.react('🎙️');
-    },
+    options: [
+      {
+        name: "mk",
+        description: "Sélectionner 🏎️ - Mario Kart",
+        type: "STRING",
+        required: false,
+      },
+      {
+        name: "smash",
+        description: "Sélectionner 🥊 - Smash",
+        type: "STRING",
+        required: false,
+      },
+      {
+        name: "sp2",
+        description: "Sélectionner 🎨 - Splatoon 2",
+        type: "STRING",
+        required: false,
+      },
+      {
+        name: "geoguessr",
+        description: "Sélectionner 🌍 - GeoGuessr",
+        type: "STRING",
+        required: false,
+      },
+      {
+        name: "discussion",
+        description: "Sélectionner 🎙️ - Live Discussion",
+        type: "USER",
+        required: false,
+      }
+    ],
      async runInteraction(client, interaction)  {
+      
+      const mk = jeu.react('🏎️')
+      const smash = jeu.react('🥊')
+      const sp2 = jeu.react('🎨')
+      const geoguessr = jeu.react('🌍')
+      const discussion = jeu.react('🎙️')
       
       const embed = new MessageEmbed()
         .setTitle('Sondage jeu')
@@ -32,12 +55,12 @@ module.exports = {
         .setTimestamp()
         .setFooter({ text: `Nouveau sondage généré par ${interaction.user.tag}!` });
 
-      const poll = await interaction.reply({ embeds: [embed], fetchReply: true});
-      poll.react('🏎️')
-      poll.react('🥊')
-      poll.react('🎨')
-      poll.react('🌍')
-      poll.react('🎙️')
+      const jeu = await interaction.reply({ embeds: [embed], fetchReply: true});
+      jeu.react('🏎️')
+      jeu.react('🥊')
+      jeu.react('🎨')
+      jeu.react('🌍')
+      jeu.react('🎙️')
     
     }
   };
