@@ -33,7 +33,7 @@ module.exports = {
         .setTimestamp()
         .setFooter({ text: `Nouveau sondage généré par ${interaction.user.tag}!` });
 
-      const poll = await interaction.reply({ content: '<@&987853422499868693>', embeds: [embed], fetchReply: true});
+      const poll = await interaction.reply({ embeds: [embed], fetchReply: true});
       poll.react('⚽')
       poll.react('🥊')
       poll.react('🌍')
