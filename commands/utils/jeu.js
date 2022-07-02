@@ -27,7 +27,7 @@ module.exports = {
      async runInteraction(client, interaction)  {
       
       const embed = new MessageEmbed()
-        .setTitle('Sondage jeu - @everyone')
+        .setTitle('Sondage jeu du dimanche')
         .setColor('#f7d1b8')
         .setDescription(`⚽ - Mario Strikers : Battle League\n🥊 - Super Smash Bros Ultimate\n🌍 - GeoGuessr\n🤸 - Fall Guys`)
         .setTimestamp()
