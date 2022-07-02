@@ -27,13 +27,13 @@ module.exports = {
      async runInteraction(client, interaction)  {
       
       const embed = new MessageEmbed()
-        .setTitle('Sondage jeu du dimanche - @everyone')
+        .setTitle('Sondage jeu du dimanche')
         .setColor('#f7d1b8')
         .setDescription(`⚽ - Mario Strikers : Battle League\n🥊 - Super Smash Bros Ultimate\n🌍 - GeoGuessr\n🤸 - Fall Guys`)
         .setTimestamp()
         .setFooter({ text: `Nouveau sondage généré par ${interaction.user.tag}!` });
 
-      const poll = await interaction.reply({ embeds: [embed], fetchReply: true});
+      const poll = await interaction.reply({ content: '<@&987853422499868693>', embeds: [embed], fetchReply: true});
       poll.react('⚽')
       poll.react('🥊')
       poll.react('🌍')
