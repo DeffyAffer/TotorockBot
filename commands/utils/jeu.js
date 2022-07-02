@@ -15,7 +15,7 @@ module.exports = {
         .setColor('#f7d1b8')
         .setDescription(`🏎️ - Mario Kart\n🥊 - Smash\n🎨 - Splatoon 2\n🌍 - GeoGuessr\n🎙️ - Live Discussion`)
         .setTimestamp()
-        .setFooter({ text: `Nouveau sondage généré par ${message.author.tag}!` });
+        .setFooter({ text: `Nouveau sondage généré par ${message.author.tag}` });
 
       const poll = await message.reply({ embeds: [embed] });
       poll.react('🏎️')
@@ -27,18 +27,17 @@ module.exports = {
      async runInteraction(client, interaction)  {
       
       const embed = new MessageEmbed()
-        .setTitle('Sondage jeu')
+        .setTitle('Sondage jeu - @everyone')
         .setColor('#f7d1b8')
-        .setDescription(`🏎️ - Mario Kart\n🥊 - Smash\n🎨 - Splatoon 2\n🌍 - GeoGuessr\n🎙️ - Live Discussion`)
+        .setDescription(`⚽ - Mario Strikers : Battle League\n🥊 - Super Smash Bros Ultimate\n🌍 - GeoGuessr\n🤸 - Fall Guys`)
         .setTimestamp()
         .setFooter({ text: `Nouveau sondage généré par ${interaction.user.tag}!` });
 
       const poll = await interaction.reply({ embeds: [embed], fetchReply: true});
-      poll.react('🏎️')
+      poll.react('⚽')
       poll.react('🥊')
-      poll.react('🎨')
       poll.react('🌍')
-      poll.react('🎙️')
+      poll.react('🤸')
     
     }
   };
